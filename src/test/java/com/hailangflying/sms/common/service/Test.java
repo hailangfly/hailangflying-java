@@ -47,7 +47,7 @@ public class Test {
         List<UserVo> st1 =  userVos.stream().filter(use -> use.getName().equals("王五") || use.getName().equals("张三")).collect(Collectors.toList());
 
 
-
+        System.out.println(st1);
         System.out.println(st1);
     }
 }
