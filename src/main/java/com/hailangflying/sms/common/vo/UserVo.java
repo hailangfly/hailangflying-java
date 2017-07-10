@@ -16,7 +16,7 @@ import java.util.List;
  * @version V1.0
  * @date 2017/7/7 17:10
  */
-public class UserVo implements Serializable{
+public class UserVo extends BaseVo implements Serializable{
 
     private String name;
 
@@ -24,17 +24,27 @@ public class UserVo implements Serializable{
 
     private int sex;
 
+    private Integer intNum;
+
+    //赋了初始值的基本类型数据会在调用完父类的构造函数之后执行基本类型数据初始化值的操作即在本狗仔函数赋值之前执行
+    private int intIntNum = 20;
+
+
+    public static int staticInteger = 30;
+
+    public static UserVo userVo ;
+
     private List<String> stringList ;
 
-
     public UserVo() {
-        super();
-       this.sex = this.getAge();
+        //默认调用父类的无参构造
+//        super();
+        this.sex = this.getAge();
     }
 
 
-    public UserVo(String name, int age, int sex, List<String> stringList) {
-        super();
+    public UserVo(String name, int age, int sex, List<String> stringList,String textId) {
+        super(textId);
         this.name = name;
         this.age = age;
         this.sex = sex;
@@ -73,6 +83,25 @@ public class UserVo implements Serializable{
     public void setStringList(List<String> stringList) {
         this.stringList = stringList;
     }
+
+    public Integer getIntNum() {
+        return intNum;
+    }
+
+    public void setIntNum(Integer intNum) {
+        this.intNum = intNum;
+    }
+
+    public int getIntIntNum() {
+        return intIntNum;
+    }
+
+    public void setIntIntNum(int intIntNum) {
+        this.intIntNum = intIntNum;
+    }
+
+
+
 
     @Override
     public String toString() {
